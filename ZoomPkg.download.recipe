@@ -14,7 +14,7 @@
 	<key>MinimumVersion</key>
 	<string>2.3</string>
 	<key>ParentRecipe</key>
-	<string>ZoomInstallerIT.download.zoom.us</string>
+	<string>com.csulb.autopkg.download.Zoom</string>
 	<key>Process</key>
 	<array>
 		<dict>
