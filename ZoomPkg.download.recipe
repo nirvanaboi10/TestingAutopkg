@@ -9,7 +9,7 @@
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>ZoomInstallerIT.%version%</string>
+		<string>ZoomInstallerIT</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>2.3</string>
