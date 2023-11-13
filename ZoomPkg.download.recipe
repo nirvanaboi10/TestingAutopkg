@@ -2,12 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Comment</key>
-	<string>Created with Recipe Robot v2.3.1 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
 	<string>Downloads the latest version of zoom.us and creates a package.</string>
 	<key>Identifier</key>
-	<string>com.csulb.autopkg.download.Zoom</string>
+	<string>ZoomInstallerIT.pkg.zoom.us</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
