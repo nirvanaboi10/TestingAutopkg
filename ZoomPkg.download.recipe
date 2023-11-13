@@ -5,7 +5,7 @@
 	<key>Description</key>
 	<string>Downloads the latest version of zoom.us and creates a package.</string>
 	<key>Identifier</key>
-	<string>ZoomInstallerIT.pkg.zoom.us</string>
+	<string>com.csulb.autopkg.download.Zoom</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
