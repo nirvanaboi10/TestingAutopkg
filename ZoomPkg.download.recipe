@@ -3,77 +3,47 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest version of zoom.us and creates a package.</string>
+	<string>Downloads the latest version of zoom.us.</string>
 	<key>Identifier</key>
-	<string>com.csulb.autopkg.download.Zoom</string>
+	<string>ZoomInstallerIT.download.zoom.us</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>zoom.us</string>
+		<string>com.csulb.autopkg.download.Zoom</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>2.3</string>
-	<key>ParentRecipe</key>
-	<string>com.csulb.autopkg.download.Zoom</string>
 	<key>Process</key>
 	<array>
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/unpacked</string>
-				<key>flat_pkg_path</key>
-				<string>%pathname%</string>
+				<key>filename</key>
+				<string>%NAME%.pkg</string>
+				<key>url</key>
+				<string>https://zoom.us/client/latest/ZoomInstallerIT.pkg</string>
 			</dict>
 			<key>Processor</key>
-			<string>FlatPkgUnpacker</string>
+			<string>URLDownloader</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
 		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/payload</string>
-				<key>pkg_payload_path</key>
-				<string>%RECIPE_CACHE_DIR%/unpacked/zoomus.pkg/Payload</string>
-				<key>purge_destination</key>
-				<true/>
-			</dict>
-			<key>Processor</key>
-			<string>PkgPayloadUnpacker</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>input_plist_path</key>
-				<string>%RECIPE_CACHE_DIR%/payload/zoom.us.app/Contents/Info.plist</string>
-				<key>plist_version_key</key>
-				<string>CFBundleShortVersionString</string>
-			</dict>
-			<key>Processor</key>
-			<string>Versioner</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>pkg_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
-				<key>source_pkg</key>
-				<string>%pathname%</string>
-			</dict>
-			<key>Processor</key>
-			<string>PkgCopier</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>path_list</key>
+				<key>expected_authority_names</key>
 				<array>
-					<string>%RECIPE_CACHE_DIR%/payload</string>
-					<string>%RECIPE_CACHE_DIR%/unpacked</string>
+					<string>Developer ID Installer: Zoom Video Communications, Inc. (BJ4HAAB9B3)</string>
+					<string>Developer ID Certification Authority</string>
+					<string>Apple Root CA</string>
 				</array>
+				<key>input_path</key>
+				<string>%pathname%</string>
 			</dict>
 			<key>Processor</key>
-			<string>PathDeleter</string>
+			<string>CodeSignatureVerifier</string>
 		</dict>
 	</array>
 </dict>
